@@ -1,0 +1,16 @@
+@import './settings.scss';
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: $font-text;
+  background: $color-dark;   /* ciemne tło */
+  color: $color-light;       /* jasny tekst */
+  line-height: 1.5;
+  padding: $base-size;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
