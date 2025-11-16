@@ -1,25 +1,18 @@
-import React, { useState } from 'react';
 import styles from './ListForm.module.scss';
-import TextInput from '../TextInput/TextInput';
+import { useState } from 'react';
 import Button from '../Button/Button';
+import TextInput from '../TextInput/TextInput';
 import { useDispatch } from 'react-redux';
-import { addList } from '../../redux/store';
+import { addList } from '../../redux/listsRedux';
 
 const ListForm = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
-
-    dispatch(
-      addList({
-        title: title,
-        description: description,
-      })
-    );
-
+    dispatch(addList({ title, description }));
     setTitle('');
     setDescription('');
   };
@@ -30,15 +23,15 @@ const ListForm = () => {
       <TextInput
         placeholder="Add list title"
         value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        onChange={e => setTitle(e.target.value)}
       />
       <span>Description:</span>
       <TextInput
         placeholder="Add list description"
         value={description}
-        onChange={(e) => setDescription(e.target.value)}
+        onChange={e => setDescription(e.target.value)}
       />
-      <Button>ADD LIST</Button>
+      <Button>Add list</Button>
     </form>
   );
 };

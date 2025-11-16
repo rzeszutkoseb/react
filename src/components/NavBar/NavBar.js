@@ -1,25 +1,20 @@
-// src/components/NavBar/NavBar.js
-
 import styles from './NavBar.module.scss';
 import Container from '../Container/Container';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 const NavBar = () => {
   return (
     <nav className={styles.navbar}>
       <Container>
-        <div className={styles.navInner}>
+        <div className={styles.navbarInner}>
           <Link to="/" className={styles.logo}>
-            <span className={'fa fa-tasks'} />
+            <span className="fa fa-tasks" />
           </Link>
           <ul className={styles.menu}>
             <li>
               <NavLink
                 to="/"
-                end
-                className={({ isActive }) =>
-                  isActive ? styles.linkActive : undefined
-                }
+                className={({ isActive }) => (isActive ? styles.linkActive : undefined)}
               >
                 Home
               </NavLink>
@@ -27,9 +22,7 @@ const NavBar = () => {
             <li>
               <NavLink
                 to="/favorite"
-                className={({ isActive }) =>
-                  isActive ? styles.linkActive : undefined
-                }
+                className={({ isActive }) => (isActive ? styles.linkActive : undefined)}
               >
                 Favorite
               </NavLink>
@@ -37,9 +30,7 @@ const NavBar = () => {
             <li>
               <NavLink
                 to="/about"
-                className={({ isActive }) =>
-                  isActive ? styles.linkActive : undefined
-                }
+                className={({ isActive }) => (isActive ? styles.linkActive : undefined)}
               >
                 About
               </NavLink>

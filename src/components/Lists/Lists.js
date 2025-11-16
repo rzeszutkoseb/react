@@ -1,8 +1,7 @@
 import styles from './Lists.module.scss';
-import { useSelector } from 'react-redux';
-import { getAllLists } from '../../redux/store';
 import { Link } from 'react-router-dom';
-import ListForm from '../ListForm/ListForm';
+import { useSelector } from 'react-redux';
+import { getAllLists } from '../../redux/listsRedux';
 
 const Lists = () => {
   const lists = useSelector(getAllLists);
@@ -10,7 +9,7 @@ const Lists = () => {
   return (
     <section className={styles.lists}>
       <h2 className={styles.heading}>Browse lists</h2>
-      {lists.map((list) => (
+      {lists.map(list => (
         <Link
           key={list.id}
           to={`/list/${list.id}`}
@@ -20,7 +19,6 @@ const Lists = () => {
           <p>{list.description}</p>
         </Link>
       ))}
-      <ListForm />
     </section>
   );
 };

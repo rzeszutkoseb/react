@@ -1,24 +1,31 @@
-@use 'sass:math';
 @import '../../styles/settings.scss';
 
 .card {
-  list-style: none;
-  background: $color-light;
-  padding: $base-size;
-  border-radius: $radius;
-  margin-bottom: $base-size;
-  box-shadow: 0 math.div($base-size, 4) 0 rgba(0, 0, 0, 0.3);
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+
+  background: $color-light;
+  border: 1px solid darken($color-light, 15%);
+  border-radius: $radius;
+  padding: $base-size;
+  margin-bottom: $base-size;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+  font-size: $base-size * 1.2;
 }
 
 .button {
-  background: transparent;
+  background: none;
   border: none;
   cursor: pointer;
-  font-size: 18px;
-  color: $color-dark;
+  font-size: $base-size * 1.4;
+  margin-left: $base-size / 2;
+  transition: color 0.2s;
+
+  &:hover {
+    color: $color-warning;
+  }
 }
 
 .isActive {

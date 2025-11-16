@@ -1,15 +1,16 @@
 import styles from './List.module.scss';
-import Column from './../Column/Column';
-import ColumnForm from './../ColumnForm/ColumnForm';
-import SearchForm from './../SearchForm/SearchForm';
+import Column from '../Column/Column';
+import ColumnForm from '../ColumnForm/ColumnForm';
+import SearchForm from '../SearchForm/SearchForm';
 import { useSelector } from 'react-redux';
-import { getListById, getColumnsByList } from '../../redux/store';
 import { useParams, Navigate } from 'react-router-dom';
+import { getListById } from '../../redux/listsRedux';
+import { getColumnsByList } from '../../redux/columnsRedux';
 
 const List = () => {
   const { listId } = useParams();
-  const listData = useSelector((state) => getListById(state, listId));
-  const columns = useSelector((state) => getColumnsByList(state, listId));
+  const listData = useSelector(state => getListById(state, listId));
+  const columns = useSelector(state => getColumnsByList(state, listId));
 
   if (!listData) return <Navigate to="/" />;
 
@@ -24,10 +25,12 @@ const List = () => {
       <SearchForm />
 
       <section className={styles.columns}>
-        {columns.map((column) => (
+        {columns.map(column => (
           <Column
             key={column.id}
-            {...column}
+            id={column.id}
+            title={column.title}
+            icon={column.icon}
           />
         ))}
       </section>
