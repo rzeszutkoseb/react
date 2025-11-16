@@ -1,3 +1,10 @@
+@import '../../styles/settings.scss';
+
 .favorite {
-  margin-top: 20px;
+  margin-top: $base-size * 2;
+}
+
+.cards {
+  margin-top: $base-size * 2;
+  padding: 0;
 }

@@ -1,13 +1,26 @@
+@use 'sass:math';
 @import '../../styles/settings.scss';
 
 .card {
-  position: relative;
+  list-style: none;
   background: $color-light;
-  border: 1px solid lighten($color-dark, 60%);
   padding: $base-size;
-  margin: 0 0 $base-size 0;
   border-radius: $radius;
+  margin-bottom: $base-size;
+  box-shadow: 0 math.div($base-size, 4) 0 rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: space-between;
-  font-weight: bold;
+  align-items: center;
+}
+
+.button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: $color-dark;
+}
+
+.isActive {
+  color: $color-warning;
 }
